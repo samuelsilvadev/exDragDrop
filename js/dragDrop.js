@@ -2,15 +2,16 @@ let dragSrcEl = null;
 
 addEventListener("load", () => {
     const cols = document.querySelectorAll(".drag");
-    [].forEach.call(cols, (c) => {
-        c.addEventListener("dragstart", handleDragStart, false);
-        c.addEventListener("dragenter", handleDragEnter, false);
-        c.addEventListener("dragover", handleDragOver, false);
-        c.addEventListener("dragleave", handleDragLeave, false);
-        c.addEventListener("drop", handleDrop, false);
-        c.addEventListener("dragend", handleDragEnd, false);
+    
+    forEach(cols, (index, arrayItem) => {
+        arrayItem.addEventListener("dragstart", handleDragStart, false);
+        arrayItem.addEventListener("dragenter", handleDragEnter, false);
+        arrayItem.addEventListener("dragover", handleDragOver, false);
+        arrayItem.addEventListener("dragleave", handleDragLeave, false);
+        arrayItem.addEventListener("drop", handleDrop, false);
+        arrayItem.addEventListener("dragend", handleDragEnd, false);
     });
-})
+});
 
 
 function handleDragStart(e){
@@ -49,8 +50,14 @@ function handleDrop(e) {
 }
 
 function handleDragEnd(e) {
-    [].forEach.call(document.querySelectorAll(".drag"), function (c) {
-        c.classList.remove("over");
-        c.style.opacity = "";
+    forEach(document.querySelectorAll(".drag"), (i, item) => {
+        item.classList.remove("over");
+        item.style.opacity = "";
     });
+}
+
+function forEach(array, callback, scope){
+    for(let i = 0; i < array.length; i++){
+        callback.call(scope, i, array[i]);
+    }
 }
