@@ -6,12 +6,12 @@ addEventListener("load", () => {
     cols = document.querySelectorAll(".drag");
     
     forEach(cols, (index, arrayItem) => {
-        arrayItem.addEventListener("dragstart", handleDragStart, false);
-        arrayItem.addEventListener("dragenter", handleDragEnter, false);
-        arrayItem.addEventListener("dragover", handleDragOver, false);
-        arrayItem.addEventListener("dragleave", handleDragLeave, false);
-        arrayItem.addEventListener("drop", handleDrop, false);
-        arrayItem.addEventListener("dragend", handleDragEnd, false);
+        arrayItem.addEventListener("dragstart", handleDragStart);
+        arrayItem.addEventListener("dragenter", handleDragEnter);
+        arrayItem.addEventListener("dragover", handleDragOver);
+        arrayItem.addEventListener("dragleave", handleDragLeave);
+        arrayItem.addEventListener("drop", handleDrop);
+        arrayItem.addEventListener("dragend", handleDragEnd);
     });
 });
 
